@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SCU Library</title>
-    <h1>Welcome to the SCU Library</h1>
-    <label for=""></label>
   </head>
   <body>
+    <h1>Welcome to the SCU Library</h1>
     <!-- list of books section -->
     <div>
       <h3>List of books</h3>
+      <ul id="book-list"></ul>
     </div>
 
     <!-- add book form -->
     <div>
       <h3>Add Book:</h3>
-      <form action="#">
+      <form id="add-book-form" action="#">
         <!-- bookID field -->
         <div>
           <label for="book-id">Enter book ID</label>
@@ -44,7 +44,7 @@
     <!-- update book form -->
     <div>
       <h3>Update book:</h3>
-      <form action="#">
+      <form id="update-book-form" action="#">
         <!-- bookID field -->
         <div>
           <label for="update-book-id">Enter book ID you want to update</label>
@@ -80,7 +80,7 @@
     <!-- search book section -->
     <div>
       <h3>Search book</h3>
-      <form action="#">
+      <form id="search-book-form" action="#">
         <div>
           <label for="search-book-name">Enter book name:</label>
           <input type="text" id="search-book-name" name="search-book-name" />
@@ -99,7 +99,7 @@
     <!-- delete book section -->
     <div>
       <h3>Delete book</h3>
-      <form action="#">
+      <form id="delete-book-form" action="#">
         <div>
           <label for="delete-book-name"
             >Enter book name you want to delete:</label
