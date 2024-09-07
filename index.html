@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCU Library</title>
+    <h1>Welcome to the SCU Library</h1>
+    <label for=""></label>
+  </head>
+  <body>
+    <!-- list of books section -->
+    <div>
+      <h3>List of books</h3>
+    </div>
+
+    <!-- add book form -->
+    <div>
+      <h3>Add Book:</h3>
+      <form action="#">
+        <!-- bookID field -->
+        <div>
+          <label for="book-id">Enter book ID</label>
+          <input type="text" id="book-id" name="book-id" />
+        </div>
+        <!-- book name field -->
+        <div>
+          <label for="book-name">Enter book name</label>
+          <input type="text" id="book-name" name="book-name" />
+        </div>
+        <!-- author name field -->
+        <div>
+          <label for="book-author">Enter author name</label>
+          <input type="text" id="book-author" name="book-author" />
+        </div>
+        <!-- book edition field -->
+        <div>
+          <label for="book-edition">Enter book edition</label>
+          <input type="text" id="book-edition" name="book-edition" />
+        </div>
+        <div><button type="submit">Add book</button></div>
+      </form>
+    </div>
+
+    <!-- update book form -->
+    <div>
+      <h3>Update book:</h3>
+      <form action="#">
+        <!-- bookID field -->
+        <div>
+          <label for="update-book-id">Enter book ID you want to update</label>
+          <input type="text" id="update-book-id" name="update-book-id" />
+        </div>
+        <!-- book name field -->
+        <div>
+          <label for="update-book-name">Enter book name</label>
+          <input type="text" id="update-book-name" name="update-book-name" />
+        </div>
+        <!-- author name field -->
+        <div>
+          <label for="update-book-author">Enter book author</label>
+          <input
+            type="text"
+            id="update-book-author"
+            name="update-book-author"
+          />
+        </div>
+        <!-- book edition field -->
+        <div>
+          <label for="update-book-edition">Enter book edition</label>
+          <input
+            type="text"
+            id="update-book-edition"
+            name="update-book-edition"
+          />
+        </div>
+        <div><button type="submit">Update book</button></div>
+      </form>
+    </div>
+
+    <!-- search book section -->
+    <div>
+      <h3>Search book</h3>
+      <form action="#">
+        <div>
+          <label for="search-book-name">Enter book name:</label>
+          <input type="text" id="search-book-name" name="search-book-name" />
+        </div>
+        <div>
+          <button type="submit">Search book</button>
+        </div>
+        <!-- search results section -->
+        <div id="search-results">
+          <p>Author: <span id="search-book-author"></span></p>
+          <p>Edition: <span id="search-book-edition"></span></p>
+        </div>
+      </form>
+    </div>
+
+    <!-- delete book section -->
+    <div>
+      <h3>Delete book</h3>
+      <form action="#">
+        <div>
+          <label for="delete-book-name"
+            >Enter book name you want to delete:</label
+          >
+          <input type="text" id="delete-book-name" name="delete-book-name" />
+        </div>
+        <div>
+          <button type="submit">Delete book</button>
+        </div>
+      </form>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
