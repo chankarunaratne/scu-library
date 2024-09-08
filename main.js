@@ -85,18 +85,18 @@ searchButton.addEventListener('click', function (e) {
   });
 
   if (foundBook) {
-    // Populate the fields with the existing data
+    // populate the fields with the existing data
     updateBookName.value = foundBook.name;
     updateBookAuthor.value = foundBook.author;
     updateBookEdition.value = foundBook.edition;
 
-    // Reveal the hidden fields for updating
+    // displaying the hidden fields for updating
     updateFields.style.display = 'block';
 
-    // reveal the update button
+    // display the update button
     updateBookButton.style.display = 'inline-block';
   } else {
-    // If no book is found, alert the user
+    // if no book is found, alert the user
     alert('Book not found. Please check the ID and try again.');
   }
 });
@@ -109,15 +109,15 @@ updateBookButton.addEventListener('click', function () {
   });
 
   if (foundBook) {
-    // Update the book details with the new values
+    // update the book details with the new values
     foundBook.name = updateBookName.value;
     foundBook.author = updateBookAuthor.value;
     foundBook.edition = updateBookEdition.value;
 
-    // Refresh the book list
+    // refresh the book list
     displayBooks();
 
-    // Optionally, hide the update section after updating
+    // hide the update section after updating
     updateFields.style.display = 'none';
     updateBookButton.style.display = 'none';
   }
@@ -136,19 +136,19 @@ searchBookForm.addEventListener('submit', function (e) {
   e.preventDefault(); // prevent form submission
   const searchBookName = searchBookNameInput.value.trim().toLowerCase(); // getting the book name and converting to lowercase for case-insensitive search
 
-  // Searching for the book in the books array
+  // searching for the book in the books array
   const foundBook = books.find(function (book) {
     return book.name.toLowerCase() === searchBookName; // case-insensitive comparison
   });
 
   if (foundBook) {
-    // Populate the spans with the found book's details
+    // populate the spans with the found book's details
     searchResultId.textContent = foundBook.id;
     searchResultName.textContent = foundBook.name;
     searchResultAuthor.textContent = foundBook.author;
     searchResultEdition.textContent = foundBook.edition;
   } else {
-    // If no book is found, clear the spans and show a message
+    // if no book is found, clear the spans and show a message
     searchResultId.textContent = 'Not found';
     searchResultName.textContent = 'Not found';
     searchResultAuthor.textContent = 'Not found';
@@ -165,20 +165,20 @@ deleteBookForm.addEventListener('submit', function (e) {
   e.preventDefault(); // prevent form submission
   const deleteBookName = deleteBookNameInput.value.trim().toLowerCase(); // getting the book name and converting to lowercase for case-insensitive search
 
-  // Finding the index of the book to delete
+  // finding the index of the book to delete
   const bookIndex = books.findIndex(function (book) {
     return book.name.toLowerCase() === deleteBookName; // case-insensitive comparison
   });
 
   if (bookIndex !== -1) {
-    // If the book is found, remove it from the array
+    // if the book is found, remove it from the array
     books.splice(bookIndex, 1); // remove the book from the array
     alert('Book deleted successfully!');
   } else {
-    // If no book is found, show a message
+    // if no book is found, show a message
     alert('Book not found. Please check the name and try again.');
   }
 
-  // Refresh the book list after deletion
+  // refresh the book list after deletion
   displayBooks();
 });
