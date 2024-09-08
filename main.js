@@ -26,7 +26,7 @@ addBookForm.addEventListener('submit', function (e) {
     bookEdition === ''
   ) {
     alert(
-      'All fields are mandotary. Please fill all the fields before continuing'
+      'All fields are mandatory. Please fill all the fields before continuing'
     );
     return;
   }
@@ -55,7 +55,7 @@ addBookForm.addEventListener('submit', function (e) {
     // loop through the books array
     books.forEach(function (book) {
       const listItem = document.createElement('li');
-      listItem.textContent = `${book.name} by ${book.author} ${book.edition}`;
+      listItem.textContent = `${book.name} by ${book.author} (${book.edition})`;
 
       // append the new list item to the ul element
       bookList.appendChild(listItem);
@@ -64,4 +64,35 @@ addBookForm.addEventListener('submit', function (e) {
 
   // calling the displaybook function after adding a new book
   displayBooks();
+});
+
+// selecting the necessary DOM elements for the Update section
+const searchButton = document.getElementById('search-book-button');
+const updateBookIdInput = document.getElementById('update-book-id');
+const updateFields = document.getElementById('update-fields');
+const updateBookName = document.getElementById('update-book-name'); // Fixed IDs for update section
+const updateBookAuthor = document.getElementById('update-book-author'); // Fixed IDs for update section
+const updateBookEdition = document.getElementById('update-book-edition'); // Fixed IDs for update section
+const updateBookForm = document.getElementById('update-book-form');
+
+//getting the input from the user for updating the book
+searchButton.addEventListener('click', function (e) {
+  e.preventDefault(); // prevent form submission
+  const bookId = Number(updateBookIdInput.value); // convert the input by the user to a number
+  const foundBook = books.find(function (book) {
+    return book.id === bookId; // checking if the bookid matches the user input
+  });
+
+  if (foundBook) {
+    // Populate the fields with the existing data
+    updateBookName.value = foundBook.name;
+    updateBookAuthor.value = foundBook.author;
+    updateBookEdition.value = foundBook.edition;
+
+    // Reveal the hidden fields for updating
+    updateFields.style.display = 'block';
+  } else {
+    // If no book is found, alert the user
+    alert('Book not found. Please check the ID and try again.');
+  }
 });
