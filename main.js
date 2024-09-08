@@ -1,7 +1,7 @@
 // creating the array to hold the books
 const books = [];
 
-// selecting the booklist globally so it's accessible in the displayBooks function
+// selecting the booklist
 const bookList = document.getElementById('book-list');
 
 // function to loop through the books array and add the list items
@@ -121,4 +121,64 @@ updateBookButton.addEventListener('click', function () {
     updateFields.style.display = 'none';
     updateBookButton.style.display = 'none';
   }
+});
+
+// selecting the necessary DOM elements for the Search section
+const searchBookForm = document.getElementById('search-book-form');
+const searchBookNameInput = document.getElementById('search-book-name');
+const searchResultId = document.getElementById('search-result-id');
+const searchResultName = document.getElementById('search-result-name');
+const searchResultAuthor = document.getElementById('search-result-author');
+const searchResultEdition = document.getElementById('search-result-edition');
+
+// adding event listener to the Search Book form
+searchBookForm.addEventListener('submit', function (e) {
+  e.preventDefault(); // prevent form submission
+  const searchBookName = searchBookNameInput.value.trim().toLowerCase(); // getting the book name and converting to lowercase for case-insensitive search
+
+  // Searching for the book in the books array
+  const foundBook = books.find(function (book) {
+    return book.name.toLowerCase() === searchBookName; // case-insensitive comparison
+  });
+
+  if (foundBook) {
+    // Populate the spans with the found book's details
+    searchResultId.textContent = foundBook.id;
+    searchResultName.textContent = foundBook.name;
+    searchResultAuthor.textContent = foundBook.author;
+    searchResultEdition.textContent = foundBook.edition;
+  } else {
+    // If no book is found, clear the spans and show a message
+    searchResultId.textContent = 'Not found';
+    searchResultName.textContent = 'Not found';
+    searchResultAuthor.textContent = 'Not found';
+    searchResultEdition.textContent = 'Not found';
+  }
+});
+
+// selecting necessary DOM elements for the Delete section
+const deleteBookForm = document.getElementById('delete-book-form');
+const deleteBookNameInput = document.getElementById('delete-book-name');
+
+// adding event listener to the Delete Book form
+deleteBookForm.addEventListener('submit', function (e) {
+  e.preventDefault(); // prevent form submission
+  const deleteBookName = deleteBookNameInput.value.trim().toLowerCase(); // getting the book name and converting to lowercase for case-insensitive search
+
+  // Finding the index of the book to delete
+  const bookIndex = books.findIndex(function (book) {
+    return book.name.toLowerCase() === deleteBookName; // case-insensitive comparison
+  });
+
+  if (bookIndex !== -1) {
+    // If the book is found, remove it from the array
+    books.splice(bookIndex, 1); // remove the book from the array
+    alert('Book deleted successfully!');
+  } else {
+    // If no book is found, show a message
+    alert('Book not found. Please check the name and try again.');
+  }
+
+  // Refresh the book list after deletion
+  displayBooks();
 });
