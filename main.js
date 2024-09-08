@@ -7,14 +7,36 @@ const addBookForm = document.getElementById('add-book-form');
 // getting the input value from the form
 addBookForm.addEventListener('submit', function (e) {
   e.preventDefault(); // preventing the default form reload
-  const bookid = document.getElementById('book-id').value;
+  const bookId = document.getElementById('book-id').value;
   const bookName = document.getElementById('book-name').value;
   const bookAuthor = document.getElementById('book-author').value;
   const bookEdition = document.getElementById('book-edition').value;
 
+  // validating that the bookID is a number
+  if (isNaN(bookId)) {
+    alert('Please enter a valid number for the book ID');
+    return;
+  }
+
+  // validating if all fields are entered
+  if (
+    bookId === '' ||
+    bookName === '' ||
+    bookAuthor === '' ||
+    bookEdition === ''
+  ) {
+    alert(
+      'All fields are mandotary. Please fill all the fields before continuing'
+    );
+    return;
+  }
+
+  // converting the ID to a number
+  const bookIdNumber = Number(bookId);
+
   // creating a book object with the collected data
   const newBook = {
-    id: bookid,
+    id: bookIdNumber,
     name: bookName,
     author: bookAuthor,
     edition: bookEdition,
