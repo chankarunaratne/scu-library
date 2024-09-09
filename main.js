@@ -1,17 +1,29 @@
 "use strict";
 // creating the array to hold the books
 const books = [];
-// selecting the booklist
-const bookList = document.getElementById('book-list');
-// function to loop through the books array and add the list items
+// selecting the book tab;e
+const bookTableBody = document.getElementById('book-table-body');
 function displayBooks() {
-    bookList.innerHTML = ''; // clears the book list in the DOM
+    bookTableBody.innerHTML = ''; // clears the table body
     // loop through the books array
     books.forEach(function (book) {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${book.name} by ${book.author} (${book.edition})`;
-        // append the new list item to the ul element
-        bookList.appendChild(listItem);
+        const row = document.createElement('tr'); // create a new row
+        // create cells for book properties
+        const idCell = document.createElement('td');
+        idCell.textContent = book.id.toString();
+        const nameCell = document.createElement('td');
+        nameCell.textContent = book.name;
+        const authorCell = document.createElement('td');
+        authorCell.textContent = book.author;
+        const editionCell = document.createElement('td');
+        editionCell.textContent = book.edition;
+        // append cells to the row
+        row.appendChild(idCell);
+        row.appendChild(nameCell);
+        row.appendChild(authorCell);
+        row.appendChild(editionCell);
+        // append the row to the table body
+        bookTableBody.appendChild(row);
     });
 }
 // selecting the add-book form and assigning it to a variable

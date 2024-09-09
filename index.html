@@ -7,12 +7,20 @@
   </head>
   <body>
     <h1>Welcome to the SCU Library</h1>
-    <!-- list of books section -->
-    <div>
-      <h3>List of books</h3>
-      <ul id="book-list"></ul>
-    </div>
-
+    <!-- list of books section (table) -->
+    <table id="book-table">
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Name</th>
+          <th>Author</th>
+          <th>Edition</th>
+        </tr>
+      </thead>
+      <tbody id="book-table-body">
+        <!-- rows will be dynamically added here -->
+      </tbody>
+    </table>
     <!-- add book form -->
     <div>
       <h3>Add Book:</h3>

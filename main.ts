@@ -9,20 +9,39 @@ type Book = {
 // creating the array to hold the books
 const books: Book[] = [];
 
-// selecting the booklist
-const bookList = document.getElementById('book-list') as HTMLUListElement;
+// selecting the book tab;e
+const bookTableBody = document.getElementById(
+  'book-table-body'
+) as HTMLTableSectionElement;
 
-// function to loop through the books array and add the list items
-function displayBooks(): void {
-  bookList.innerHTML = ''; // clears the book list in the DOM
+function displayBooks() {
+  bookTableBody.innerHTML = ''; // clears the table body
 
   // loop through the books array
-  books.forEach(function (book: Book) {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${book.name} by ${book.author} (${book.edition})`;
+  books.forEach(function (book) {
+    const row = document.createElement('tr'); // create a new row
 
-    // append the new list item to the ul element
-    bookList.appendChild(listItem);
+    // create cells for book properties
+    const idCell = document.createElement('td');
+    idCell.textContent = book.id.toString();
+
+    const nameCell = document.createElement('td');
+    nameCell.textContent = book.name;
+
+    const authorCell = document.createElement('td');
+    authorCell.textContent = book.author;
+
+    const editionCell = document.createElement('td');
+    editionCell.textContent = book.edition;
+
+    // append cells to the row
+    row.appendChild(idCell);
+    row.appendChild(nameCell);
+    row.appendChild(authorCell);
+    row.appendChild(editionCell);
+
+    // append the row to the table body
+    bookTableBody.appendChild(row);
   });
 }
 
