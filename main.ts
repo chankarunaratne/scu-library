@@ -1,4 +1,4 @@
-// Define a Book type
+// defining the Book type to be used in the books array
 type Book = {
   id: number;
   name: string;
